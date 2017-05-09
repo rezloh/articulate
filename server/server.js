@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const path = require('path');
 const mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
 
 // API ROUTE HANDLER
 const home = require('./home.js');
@@ -24,7 +25,7 @@ app.use('/bundle', express.static(path.join(__dirname, '/../dist')));
 
 // ROUTING
 app.use('/', home);
-app.use('/api', routes);
+app.use('/api/article', routes);
 
 // CATCH 404 ERRORS
 app.use((req, res, next) => {
