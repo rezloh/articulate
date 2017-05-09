@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 const articleSchema = new Schema({
   title: String,
@@ -10,4 +10,4 @@ const articleSchema = new Schema({
   }
 });
 
-module.exports = mongoose.Model('Article', articleSchema);
+module.exports = mongoose.model('Article', articleSchema);

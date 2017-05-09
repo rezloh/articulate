@@ -7,8 +7,8 @@ const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 
 // API ROUTE HANDLER
-const home = require('./home.js');
-const routes = require('./routes.js');
+const home = require('./routes/home.js');
+const routes = require('./routes/routes.js');
 
 // START EXPRESS AND MONGODB
 const app = express();
