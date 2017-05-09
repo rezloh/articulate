@@ -6,6 +6,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 
 // API ROUTE HANDLER
+const home = require('./home.js');
 const routes = require('./routes.js');
 
 // START EXPRESS AND MONGODB
@@ -22,6 +23,7 @@ app.use('/public', express.static(path.join(__dirname, '/../client')));
 app.use('/bundle', express.static(path.join(__dirname, '/../dist')));
 
 // ROUTING
+app.use('/', home);
 app.use('/api', routes);
 
 // CATCH 404 ERRORS
