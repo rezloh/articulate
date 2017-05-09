@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
-const article = new Schema({
+const articleSchema = new Schema({
   title: String,
   body: String,
   createdAt: {
@@ -10,4 +10,4 @@ const article = new Schema({
   }
 });
 
-module.exports = mongoose.Model('Article', article);
+module.exports = mongoose.Model('Article', articleSchema);
