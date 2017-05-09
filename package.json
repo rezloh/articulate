@@ -9,12 +9,18 @@
   "author": "Tyler Holzer",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.16.1",
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "mongoose": "^4.9.8",
     "morgan": "^1.8.1",
     "nodemon": "^1.11.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.4",
+    "react-router": "^4.1.1",
+    "redux": "^3.6.0"
   }
 }
