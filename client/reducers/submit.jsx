@@ -1,10 +1,10 @@
-const submit = (state = { title: '', body: '' }, action) => {
+const submission = (state = { title: '', body: '' }, action) => {
   switch(action.type) {
     case 'EDIT_SUBMIT':
-      return Object.assign({}, state, action.submit);
+      return Object.assign({}, state, action.article);
     default:
       return state;
   };
 };
 
-export default submit;
+export default submission;

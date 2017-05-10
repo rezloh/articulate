@@ -4,12 +4,12 @@ import { createStore, combineReducers } from 'redux';
 // REDUCERS
 import articles from './reducers/articles.jsx';
 import current from './reducers/current.jsx';
-import submit from './reducers/submit.jsx';
+import submission from './reducers/submit.jsx';
 
 const reducers = combineReducers({
   articles,
   current,
-  submit
+  submission
 });
 
 const store = createStore(
