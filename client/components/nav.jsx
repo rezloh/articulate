@@ -1,6 +1,6 @@
 // REACT/REDUX
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const Nav = () => (
   <div>
@@ -8,3 +8,5 @@ const Nav = () => (
     <Link to="/submit">Submit an Article</Link>
   </div>
 );
+
+export default Nav;

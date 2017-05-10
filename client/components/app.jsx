@@ -1,30 +1,27 @@
 // REACT/REDUX
 import React from 'react';
-import { Router, Route, hashHistory } from 'react-router';
+import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 // COMPONENTS
 import Nav from './nav.jsx';
+import ArticleList from './articleList.jsx';
 import Article from './article.jsx';
 import Submit from './submit.jsx';
 
-const routes = (
-  <div>
-    <Route path="/" component={Nav} />
-    <Route path="/article/:id" component={Article} />
-    <Route path="/submit" component={Submit} />
-  </div>
-);
-
 const App = () => {
   return (
-    <Router history={hashHistory} />
+    <div>
+      <BrowserRouter>
       <div>
         <Nav />
-      { routes }
+        <Route exact path="/" component={ArticleList} />
+        <Route path="/article/:id" component={Article} />
+        <Route path="/submit" component={Submit} />
       </div>
-    </Router>
+    </BrowserRouter>
+    </div>
   );
 };
 
-export default connect(App);
+export default App;
