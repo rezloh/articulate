@@ -2,26 +2,41 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 // COMPONENTS
 import Nav from './nav.jsx';
 import ArticleList from './articleList.jsx';
 import Article from './article.jsx';
 import Submit from './submit.jsx';
+import { loadArticles } from '../actions/actions.jsx';
 
-const App = () => {
-  return (
-    <div>
-      <BrowserRouter>
+class App extends React.Component {
+
+  componentWillMount() {
+    axios.get('/api/article')
+    .then(response => {
+      this.props.dispatch(loadArticles(response.data));
+    })
+    .catch(err => {
+      console.error(err);
+    });
+  };
+
+  render () {
+    return (
       <div>
-        <Nav />
-        <Route exact path="/" component={ArticleList} />
-        <Route path="/article/:id" component={Article} />
-        <Route path="/submit" component={Submit} />
+        <BrowserRouter>
+          <div>
+            <Nav />
+            <Route exact path="/" component={ArticleList} />
+            <Route path="/article/:id" component={Article} />
+            <Route path="/submit" component={Submit} />
+          </div>
+        </BrowserRouter>
       </div>
-    </BrowserRouter>
-    </div>
-  );
+    );
+  };
 };
 
-export default App;
+export default connect()(App);

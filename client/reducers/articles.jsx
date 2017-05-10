@@ -1,7 +1,7 @@
 const articles = (state = [], action) => {
   switch (action.type) {
-    case 'GET_ARTICLES':
-      return Object.assign({}, state, action.results);
+    case 'LOAD_ARTICLES':
+      return action.articles;
     default:
       return state;
   };

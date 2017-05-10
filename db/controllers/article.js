@@ -1,5 +1,9 @@
 const articleModel = require('../models/article.js');
 
+// RETRIEVE ALL ARTICLES
+exports.getAllArticles = () => {
+  return articleModel.find({});
+};
 // RETRIEVE AN ARTICLE
 exports.getArticle = (id) => {
   return articleModel.findOne({ _id: id });
