@@ -17,10 +17,10 @@ exports.updateArticle = (id, data) => {
   return articleModel.findOneAndUpdate({ _id: id }, { $set: {
     title: data.title,
     body: data.body
-  }
+    }
   });
 };
-// REMOVE AND ARTICLE
+// REMOVE AN ARTICLE
 exports.deleteArticle = (id) => {
   return articleModel.findByIdAndRemove({ _id: id });
 };

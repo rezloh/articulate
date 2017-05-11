@@ -2,16 +2,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { setCurrent } from '../actions/actions.jsx';
-import { loadArticles } from '../actions/actions.jsx';
+// DEPENDENCIES
 import axios from 'axios';
+// ACTIONS
+import { setCurrent, loadArticles } from '../actions/actions.jsx';
 
 class ArticleList extends React.Component {
+  constructor() {
+    super ()
+    this.state = { loading: true }
+  };
 
   componentWillMount() {
     axios.get('/api/article')
     .then(response => {
       this.props.dispatch(loadArticles(response.data));
+      this.setState({ loading: false });
     })
     .catch(err => {
       console.error(err);
@@ -21,7 +27,7 @@ class ArticleList extends React.Component {
   renderArticles () {
     return this.props.articles.map((article, index) => (
       <tr key={index}>
-        <td>{article.createdAt}</td>
+        <td>{article.createdAt.slice(0, 10)}</td>
         <td>
           <Link
             to={`/article/${article._id}`}
@@ -45,7 +51,11 @@ class ArticleList extends React.Component {
         </tbody>
       </table>
     ) : (
-      <h3>There aren't any articles yet. Click the link above to add one.</h3>
+      this.state.loading ? (
+        null
+      ) : (
+        <h3>There aren't any articles yet. Click the link above to add one.</h3>
+      )
     );
   };
 };

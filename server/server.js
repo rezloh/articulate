@@ -26,6 +26,9 @@ app.use('/bundle', express.static(path.join(__dirname, '/../dist')));
 // ROUTING
 app.use('/', home);
 app.use('/api/article', routes);
+app.use('*', (req, res, next) => {
+  res.redirect('/');
+})
 
 // CATCH 404 ERRORS
 app.use((req, res, next) => {

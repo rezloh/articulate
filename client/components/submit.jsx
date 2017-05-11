@@ -2,8 +2,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+// DEPENDENCIES
 import axios from 'axios';
-
 // ACTIONS
 import { submitArticle } from '../actions/actions.jsx';
 
@@ -12,16 +12,23 @@ const Submit = ({ submission, dispatch }) => (
     <input
       type="text"
       name="title"
+      size="80"
       placeholder="Article title"
       value={submission.title}
       onChange={(e) => dispatch(submitArticle({ title: e.target.value }))}
     />
+    <br />
+    <br />
     <textarea
       name="body"
+      rows="20"
+      cols="80"
       placeholder="Body text goes here"
       value={submission.body}
       onChange={(e) => dispatch(submitArticle({ body: e.target.value }))}
     />
+    <br />
+    <br />
     <button
       type="button"
       name="Submit"

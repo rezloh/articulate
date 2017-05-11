@@ -16,12 +16,13 @@ router.get('/:id', (req, res, next) => {
 // GETS ALL ARTICLES
 router.get('/', (req, res, next) => {
   article.getAllArticles()
-  .then(response => {
-    res.status(200).send(response);
-  })
-  .catch(err => {
-    res.status(500).send(err);
-  });
+    .sort('-createdAt')
+      .then(response => {
+        res.status(200).send(response);
+      })
+      .catch(err => {
+        res.status(500).send(err);
+      });
 });
 // ADDS A NEW ARTICLE TO THE DATABASE
 router.post('/', (req, res, next) => {

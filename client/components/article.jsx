@@ -2,9 +2,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { editArticle, clearCurrent } from '../actions/actions.jsx';
-import { history } from 'history';
+// DEPENDENCIES
 import axios from 'axios';
+// ACTIONS
+import { editArticle, clearCurrent } from '../actions/actions.jsx';
 
 const Article = ({ current, dispatch }) => {
 
@@ -13,21 +14,33 @@ const Article = ({ current, dispatch }) => {
       <input
         type="text"
         name="title"
+        size="80"
         value={current.title}
         onChange={(e) => dispatch(editArticle({ title: e.target.value }))}
       />
+      <br />
+      <br />
       <textarea
         name="body"
+        rows="20"
+        cols="80"
         value={current.body}
         onChange={(e) => dispatch(editArticle({ body: e.target.value }))}
       />
+      <br />
+      <br />
+      <button
+        type="button"
+        name="Cancel"
+        onClick={() => dispatch(editArticle({ editing: false }))}
+      >Cancel
+      </button>
       <button
         type="button"
         name="Save"
         onClick={() => submitEdit(current, dispatch)}
       >Save</button>
     </div>
-
   ) : (
     current._id ? (
       <div>
