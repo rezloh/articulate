@@ -1,9 +1,10 @@
-const current = (state = { title: '', body: '' }, action) => {
+const current = (state = { title: '', body: '', editing: false }, action) => {
   switch (action.type) {
     case 'SET_CURRENT':
       return Object.assign({}, state, action.article);
     case 'EDIT_ARTICLE':
-      return Object.assign({}, state, action.article);
+     console.log(action)
+      return Object.assign({}, state, action.editing);
     default:
       return state;
   };

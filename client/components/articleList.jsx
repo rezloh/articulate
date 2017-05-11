@@ -2,13 +2,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { setCurrent } from '../actions/actions.jsx';
 
-const ArticleList = ({ articles }) => {
+const ArticleList = ({ articles, current, dispatch }) => {
 
   const renderArticles = () => articles.map((article, index) => (
     <tr key={index}>
       <td>{article.createdAt}</td>
-      <td><Link to={`/article/${article._id}`}>{article.title}</Link></td>
+      <td>
+        <Link
+          to={`/article/${article._id}`}
+          onClick={() => dispatch(setCurrent(article))}
+        >{article.title}
+        </Link>
+
+      </td>
     </tr>
   ));
 

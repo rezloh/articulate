@@ -36,6 +36,7 @@ router.post('/', (req, res, next) => {
 });
 // UPDATES AN ARTICLE
 router.put('/:id', (req, res, next) => {
+  console.log('THE ARTICLE BEING EDITED IS : ', req.body)
   article.updateArticle(req.params.id, req.body)
     .then(response => {
       res.status(200).send(response);
