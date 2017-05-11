@@ -28,7 +28,6 @@ class ArticleList extends React.Component {
             onClick={() => this.props.dispatch(setCurrent(article))}
           >{article.title}
           </Link>
-
         </td>
       </tr>
     ));

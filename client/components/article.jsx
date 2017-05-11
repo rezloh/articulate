@@ -36,6 +36,11 @@ const Article = ({ current, dispatch }) => {
         name="Edit"
         onClick={() => dispatch(editArticle({ editing: true }))}
       >Edit Article</button>
+    <button
+      type="button"
+      name="Delete"
+      onClick={() => deleteArticle(current._id, dispatch)}
+    >Delete Article</button>
     </div>
   )
 };
@@ -43,7 +48,17 @@ const Article = ({ current, dispatch }) => {
 const submitEdit = (current, dispatch) => {
   axios.put(`/api/article/${current._id}`, current)
     .then(response => {
-      console.log(response)
+      console.log(response);
+    })
+    .catch(err => {
+      console.error(err);
+    });
+};
+
+const deleteArticle = (id, dispatch) => {
+  axios.delete(`/api/article/${id}`)
+    .then(response => {
+      console.log(response);
     })
     .catch(err => {
       console.error(err);

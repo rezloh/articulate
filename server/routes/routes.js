@@ -47,8 +47,8 @@ router.put('/:id', (req, res, next) => {
     });
 });
 // DELETES AN ARTICLE
-router.delete('/', (req, res, next) => {
-  article.deleteArticle(req.body.id)
+router.delete('/:id', (req, res, next) => {
+  article.deleteArticle(req.params.id)
     .then(response => {
       res.status(200).send(response);
     })
