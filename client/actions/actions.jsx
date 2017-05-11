@@ -18,3 +18,7 @@ export const editArticle = editing => ({
   type: 'EDIT_ARTICLE',
   editing
 });
+
+export const clearCurrent = () => ({
+  type: 'CLEAR_CURRENT',
+});

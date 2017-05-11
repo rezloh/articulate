@@ -1,7 +1,9 @@
 // REACT/REDUX
 import React from 'react';
 import { connect } from 'react-redux';
-import { editArticle } from '../actions/actions.jsx';
+import { Redirect } from 'react-router-dom';
+import { editArticle, clearCurrent } from '../actions/actions.jsx';
+import { history } from 'history';
 import axios from 'axios';
 
 const Article = ({ current, dispatch }) => {
@@ -27,28 +29,30 @@ const Article = ({ current, dispatch }) => {
     </div>
 
   ) : (
-    <div>
-      <h2>{current.title}</h2>
-      <p>{current.body}</p>
-      <br />
+    current._id ? (
+      <div>
+        <h2>{current.title}</h2>
+        <p>{current.body}</p>
+        <br />
+        <button
+          type="button"
+          name="Edit"
+          onClick={() => dispatch(editArticle({ editing: true }))}
+        >Edit Article</button>
       <button
         type="button"
-        name="Edit"
-        onClick={() => dispatch(editArticle({ editing: true }))}
-      >Edit Article</button>
-    <button
-      type="button"
-      name="Delete"
-      onClick={() => deleteArticle(current._id, dispatch)}
-    >Delete Article</button>
-    </div>
-  )
+        name="Delete"
+        onClick={() => deleteArticle(current._id, dispatch)}
+      >Delete Article</button>
+      </div>
+    ) : <Redirect to='/' />
+  );
 };
 
 const submitEdit = (current, dispatch) => {
   axios.put(`/api/article/${current._id}`, current)
     .then(response => {
-      console.log(response);
+      dispatch(editArticle({ editing: false }));
     })
     .catch(err => {
       console.error(err);
@@ -58,7 +62,7 @@ const submitEdit = (current, dispatch) => {
 const deleteArticle = (id, dispatch) => {
   axios.delete(`/api/article/${id}`)
     .then(response => {
-      console.log(response);
+      dispatch(clearCurrent());
     })
     .catch(err => {
       console.error(err);

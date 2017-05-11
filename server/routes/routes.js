@@ -16,12 +16,12 @@ router.get('/:id', (req, res, next) => {
 // GETS ALL ARTICLES
 router.get('/', (req, res, next) => {
   article.getAllArticles()
-    .then(response => {
-      res.status(200).send(response);
-    })
-    .catch(err => {
-      res.status(500).send(err);
-    });
+  .then(response => {
+    res.status(200).send(response);
+  })
+  .catch(err => {
+    res.status(500).send(err);
+  });
 });
 // ADDS A NEW ARTICLE TO THE DATABASE
 router.post('/', (req, res, next) => {
@@ -36,7 +36,6 @@ router.post('/', (req, res, next) => {
 });
 // UPDATES AN ARTICLE
 router.put('/:id', (req, res, next) => {
-  console.log('THE ARTICLE BEING EDITED IS : ', req.body)
   article.updateArticle(req.params.id, req.body)
     .then(response => {
       res.status(200).send(response);

@@ -1,6 +1,7 @@
 // REACT/REDUX
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
+import { hashHistory } from 'react-router';
 import { connect } from 'react-redux';
 
 // COMPONENTS
