@@ -44,7 +44,7 @@ const Article = ({ current, dispatch }) => {
   ) : (
     current._id ? (
       <div>
-        <h2>{current.title}</h2>
+        <h4>{current.title}</h4>
         <p>{current.body}</p>
         <br />
         <button

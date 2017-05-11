@@ -28,6 +28,7 @@ class ArticleList extends React.Component {
     return this.props.articles.map((article, index) => (
       <tr key={index}>
         <td>{article.createdAt.slice(0, 10)}</td>
+        <td>&emsp;</td>
         <td>
           <Link
             to={`/article/${article._id}`}
@@ -45,7 +46,8 @@ class ArticleList extends React.Component {
         <tbody>
           <tr>
             <th>Date Added</th>
-            <th>Article Title</th>
+            <th>&emsp;</th>
+            <th style={{textAlign:"left"}}>Article Title</th>
           </tr>
           {this.renderArticles()}
         </tbody>
