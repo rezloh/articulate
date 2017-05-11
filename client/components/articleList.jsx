@@ -54,7 +54,7 @@ class ArticleList extends React.Component {
       this.state.loading ? (
         null
       ) : (
-        <h3>There aren't any articles yet. Click the link above to add one.</h3>
+        <h4>There aren't any articles yet. Click the link above to add one.</h4>
       )
     );
   };

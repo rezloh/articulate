@@ -42,6 +42,7 @@ const submit = (article, dispatch) => {
   axios.post('/api/article', article)
     .then(response => {
       dispatch(submitArticle({ title: '', body: '' }));
+      window.location.reload(true);
     })
     .catch(err => {
       console.error(err);
