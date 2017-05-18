@@ -4,7 +4,9 @@
   "description": "Fullstack MERN web app.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server/server.js && webpack --watch"
+    "start": "npm-run-all --parallel watch:server watch:build",
+    "watch:server": "nodemon server/server.js",
+    "watch:build": "webpack --watch"s
   },
   "author": "Tyler Holzer",
   "license": "ISC",
