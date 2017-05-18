@@ -35,5 +35,10 @@ This app uses the npm-run-all package to allow Webpack to watch the client files
 npm start
 ```
 
+### Next Steps
 
+* Use a CSS preprocessor like SASS for styles.
+* Rebuild the frontend using Angular 2 or Angular 4.
+* Create a version that uses mySQL rather than Mongo.
+* Implement user authentication.
 
