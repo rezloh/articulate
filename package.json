@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm-run-all --parallel watch:server watch:build",
     "watch:server": "nodemon server/server.js",
-    "watch:build": "webpack --watch"s
+    "watch:build": "webpack --watch"
   },
   "author": "Tyler Holzer",
   "license": "ISC",
